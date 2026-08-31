@@ -168,4 +168,31 @@ html[data-language="pt-BR"] .hero-lead { min-height: 5.25em; }
   html[data-language="pt-BR"] .hero-lead { min-height: 147px; }
   .career-map,
   html[data-language="pt-BR"] .career-map { min-height: 803px; }
+
+  /* Keep the three localized profile cards on the same vertical rhythm.
+     The footer occupies a fixed anchor at the bottom of the card, rather
+     than moving upward when a translation happens to use fewer lines. */
+  .career-map {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .career-track {
+    grid-template-columns: 42px minmax(0, 1fr);
+    gap: 10px;
+    min-height: 118px;
+    padding: 14px;
+  }
+
+  .career-track b { width: 42px; height: 42px; }
+
+  .career-track strong {
+    font-size: .88rem;
+    letter-spacing: -.025em;
+    overflow-wrap: normal;
+    word-break: normal;
+    white-space: nowrap;
+  }
+
+  .profile-facts { margin-top: auto; }
 }
