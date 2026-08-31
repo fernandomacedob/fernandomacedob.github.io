@@ -202,4 +202,5 @@ html[data-language="pt-BR"] .hero-lead { min-height: 5.25em; }
    localized display size enough to keep the complete word on one line. */
 @media (max-width: 380px) {
   html[data-language="pt-BR"] .hero h1 { font-size: 2.9rem; }
+  .career-map { min-height: 822px; }
 }
