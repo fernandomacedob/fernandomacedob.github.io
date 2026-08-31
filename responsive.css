@@ -84,12 +84,26 @@
 /* The career-map copy always begins in the same reference column. */
 .career-map-heading {
   display: grid;
-  grid-template-columns: 176px minmax(0, 1fr);
+  grid-template-columns: 134px minmax(0, 1fr);
   align-items: start;
   min-height: 108px;
 }
 
 .career-map-heading p { max-width: none; }
+
+@media (max-width: 960px) {
+  .hero-grid,
+  .hero-grid > div { min-width: 0; }
+}
+
+@media (max-width: 720px) {
+  .career-map-heading { grid-template-columns: 110px minmax(0, 1fr); }
+  .hero h1 { overflow-wrap: anywhere; }
+}
+
+@media (min-width: 421px) and (max-width: 720px) {
+  .career-map-heading { grid-template-columns: 126px minmax(0, 1fr); }
+}
 
 
 .intro { grid-template-columns: 1.3fr .7fr; }
