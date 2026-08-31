@@ -81,6 +81,17 @@
   .career-map-heading p { overflow-wrap: anywhere; }
 }
 
+/* The career-map copy always begins in the same reference column. */
+.career-map-heading {
+  display: grid;
+  grid-template-columns: 176px minmax(0, 1fr);
+  align-items: start;
+  min-height: 108px;
+}
+
+.career-map-heading p { max-width: none; }
+
+
 .intro { grid-template-columns: 1.3fr .7fr; }
 @media (max-width: 960px) { .intro { grid-template-columns: 1fr; } .intro > p { grid-column: auto; } }
 
