@@ -117,10 +117,11 @@ html[data-language="pt-BR"] .hero-lead { min-height: 5.25em; }
 
 /* Reserve the English-reference geometry at each responsive breakpoint. */
 @media (min-width: 961px) {
-  /* The profile is a fixed reference component, not a shrinking fraction of
-     the hero grid.  Longer Portuguese and French copy must never compress it. */
+  /* Reserve independent columns for the reference headline and profile.
+     Neither column may encroach on the other when translated text is shown. */
   .hero-grid {
-    grid-template-columns: minmax(0, 1fr) minmax(480px, 510px);
+    grid-template-columns: minmax(0, 1fr) minmax(400px, .75fr);
+    gap: clamp(48px, 5vw, 80px);
   }
 
   .career-map {
