@@ -6,6 +6,10 @@
   object-position: center top;
 }
 
+@media (max-width: 960px) {
+  .education-grid article { border-right: 1px solid var(--border); }
+}
+
 @media (max-width: 720px) {
   .site-header {
     display: grid;
@@ -34,7 +38,6 @@
   .site-header nav a { white-space: nowrap; }
   .profile-portrait { grid-template-columns: 112px minmax(0, 1fr); gap: 14px; }
   .profile-portrait img { width: 112px; height: 140px; aspect-ratio: auto; }
-  .education-grid article { border-right: 1px solid var(--border); }
 }
 
 @media (max-width: 420px) {
