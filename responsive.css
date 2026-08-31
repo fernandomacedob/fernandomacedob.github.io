@@ -69,3 +69,13 @@
 
 .intro { grid-template-columns: 1.3fr .7fr; }
 @media (max-width: 960px) { .intro { grid-template-columns: 1fr; } .intro > p { grid-column: auto; } }
+
+/* Translation-safe hero: the English layout remains the reference model. */
+html[data-language="fr"] .hero h1,
+html[data-language="pt-BR"] .hero h1 { min-height: 2.85em; }
+html[data-language="fr"] .career-map,
+html[data-language="pt-BR"] .career-map { align-self: start; margin-top: 20px; }
+html[data-language="fr"] .career-track strong,
+html[data-language="pt-BR"] .career-track strong { min-height: 2.45em; }
+html[data-language="fr"] .career-track p,
+html[data-language="pt-BR"] .career-track p { min-height: 2.4em; }
