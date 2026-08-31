@@ -78,7 +78,13 @@ html[data-language="pt-BR"] .hero-lead { min-height: 5.25em; }
 
 /* Reserve the English-reference geometry at each responsive breakpoint. */
 @media (min-width: 961px) {
-  html[data-language="pt-BR"] .career-map { min-height: 733px; }
+  .hero-grid > div:first-child {
+    align-self: start;
+    margin-top: 33px;
+  }
+
+  .hero-lead { min-height: 5.25em; }
+  .career-map { min-height: 733px; }
 }
 
 @media (min-width: 721px) and (max-width: 960px) {
