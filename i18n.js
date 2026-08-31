@@ -31,15 +31,26 @@
   if (!['en','fr','pt-BR'].includes(language)) language = 'en';
   const catalog = () => language === 'pt-BR' ? pt : language === 'fr' ? fr : {};
   const translate = value => catalog()[value] || value;
+  // Keep each text node's original English source outside the DOM.  That lets
+  // a visitor move freely between languages without a page reload and without
+  // trying to translate an already translated value.
+  const sourceTexts = new WeakMap();
   const apply = () => {
     document.documentElement.lang = language === 'pt-BR' ? 'pt-BR' : language;
     document.documentElement.dataset.language = language;
     document.querySelectorAll('[data-language]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.language === language)));
     const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, { acceptNode(node) { return node.parentElement && !['SCRIPT','STYLE'].includes(node.parentElement.tagName) && node.nodeValue.trim() ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT; } });
     const nodes = []; while (walker.nextNode()) nodes.push(walker.currentNode);
-    nodes.forEach(node => { const source = node.__sourceText || node.nodeValue.trim(); node.__sourceText = source; const before = node.nodeValue; node.nodeValue = before.replace(source, translate(source)); });
+    nodes.forEach(node => {
+      const before = node.nodeValue;
+      const source = sourceTexts.get(node) || before.trim();
+      sourceTexts.set(node, source);
+      const leading = before.match(/^\s*/)[0];
+      const trailing = before.match(/\s*$/)[0];
+      node.nodeValue = `${leading}${translate(source)}${trailing}`;
+    });
   };
-  const setLanguage = next => { if (next === language) return; language = next; localStorage.setItem('portfolio-language', language); const url = new URL(location); language === 'en' ? url.searchParams.delete('lang') : url.searchParams.set('lang', language); history.replaceState(null, '', url); apply(); document.dispatchEvent(new CustomEvent('portfolio-languagechange')); };
+  const setLanguage = next => { if (next === language) return; language = next; localStorage.setItem('portfolio-language', language); const url = new URL(location); language === 'en' ? url.searchParams.delete('lang') : url.searchParams.set('lang', language); history.replaceState(null, '', url); document.dispatchEvent(new CustomEvent('portfolio-languagechange')); apply(); };
   document.querySelectorAll('[data-language]').forEach(button => button.addEventListener('click', () => setLanguage(button.dataset.language)));
   window.i18n = { apply, translate, get language() { return language; } };
 })();
