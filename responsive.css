@@ -162,7 +162,7 @@ html[data-language="pt-BR"] .hero-lead { min-height: 5.25em; }
   /* Shared slots preserve the English-reference geometry for every locale. */
   .hero h1,
   html[data-language="fr"] .hero h1,
-  html[data-language="pt-BR"] .hero h1 { min-height: 312px; }
+  html[data-language="pt-BR"] .hero h1 { min-height: 3em; }
   .hero-lead,
   html[data-language="fr"] .hero-lead,
   html[data-language="pt-BR"] .hero-lead { min-height: 147px; }
