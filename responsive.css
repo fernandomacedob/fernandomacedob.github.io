@@ -147,13 +147,20 @@ html[data-language="pt-BR"] .hero-lead { min-height: 5.25em; }
 
 @media (min-width: 721px) and (max-width: 960px) {
   .hero h1 { min-height: 2.85em; }
-  .hero-lead { min-height: 4.25em; }
+  .hero-lead,
+  html[data-language="fr"] .hero-lead,
+  html[data-language="pt-BR"] .hero-lead { min-height: 88px; }
   html[data-language="pt-BR"] .career-map { min-height: 733px; }
 }
 
 @media (max-width: 720px) {
   /* Shared slots preserve the English-reference geometry for every locale. */
-  .hero h1 { min-height: 5em; }
-  .hero-lead { min-height: 7em; }
-  html[data-language="pt-BR"] .career-map { min-height: 729px; }
+  .hero h1,
+  html[data-language="fr"] .hero h1,
+  html[data-language="pt-BR"] .hero h1 { min-height: 312px; }
+  .hero-lead,
+  html[data-language="fr"] .hero-lead,
+  html[data-language="pt-BR"] .hero-lead { min-height: 147px; }
+  .career-map,
+  html[data-language="pt-BR"] .career-map { min-height: 803px; }
 }
