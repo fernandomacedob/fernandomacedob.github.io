@@ -39,7 +39,7 @@
     const nodes = []; while (walker.nextNode()) nodes.push(walker.currentNode);
     nodes.forEach(node => { const source = node.__sourceText || node.nodeValue.trim(); node.__sourceText = source; const before = node.nodeValue; node.nodeValue = before.replace(source, translate(source)); });
   };
-  const setLanguage = next => { language = next; localStorage.setItem('portfolio-language', language); const url = new URL(location); language === 'en' ? url.searchParams.delete('lang') : url.searchParams.set('lang', language); history.replaceState(null, '', url); document.dispatchEvent(new CustomEvent('portfolio-languagechange')); };
+  const setLanguage = next => { if (next === language) return; language = next; localStorage.setItem('portfolio-language', language); const url = new URL(location); language === 'en' ? url.searchParams.delete('lang') : url.searchParams.set('lang', language); history.replaceState(null, '', url); apply(); document.dispatchEvent(new CustomEvent('portfolio-languagechange')); };
   document.querySelectorAll('[data-language]').forEach(button => button.addEventListener('click', () => setLanguage(button.dataset.language)));
   window.i18n = { apply, translate, get language() { return language; } };
 })();
