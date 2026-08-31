@@ -75,7 +75,3 @@ html[data-language="fr"] .hero h1,
 html[data-language="pt-BR"] .hero h1 { min-height: 2.85em; }
 html[data-language="fr"] .hero-lead,
 html[data-language="pt-BR"] .hero-lead { min-height: 5.25em; }
-@media (min-width: 961px) {
-  html[data-language="fr"] .hero-grid > div:first-child,
-  html[data-language="pt-BR"] .hero-grid > div:first-child { align-self: start; margin-top: 85px; }
-}
