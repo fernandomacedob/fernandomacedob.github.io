@@ -8,6 +8,18 @@
 
 @media (max-width: 960px) {
   .education-grid article { border-right: 1px solid var(--border); }
+
+  .skills {
+    border-top: 1px solid var(--border);
+    border-inline: 1px solid var(--border);
+  }
+
+  .skills article {
+    border-right: 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .skills article:last-child { border-bottom: 0; }
 }
 
 @media (max-width: 720px) {
@@ -46,3 +58,6 @@
   .profile-portrait { grid-template-columns: 96px minmax(0, 1fr); }
   .profile-portrait img { width: 96px; height: 120px; }
 }
+
+/* The empty-result panel is shown only when JavaScript explicitly removes hidden. */
+.empty-state[hidden] { display: none !important; }
