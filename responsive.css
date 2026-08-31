@@ -67,6 +67,20 @@
 .language-switcher button[aria-pressed="true"] { border-color: var(--teal); background: var(--teal); color: #fff; }
 @media (max-width: 720px) { .language-switcher { justify-self: start; } }
 
+/* Keep translated copy inside its reference component at every width. */
+.career-map,
+.career-track > div,
+.profile-portrait > div,
+.career-map-heading > * { min-width: 0; }
+
+@media (max-width: 960px) {
+  .career-map { width: 100%; max-width: 100%; }
+  .career-track strong,
+  .career-track p,
+  .profile-portrait strong,
+  .career-map-heading p { overflow-wrap: anywhere; }
+}
+
 .intro { grid-template-columns: 1.3fr .7fr; }
 @media (max-width: 960px) { .intro { grid-template-columns: 1fr; } .intro > p { grid-column: auto; } }
 
