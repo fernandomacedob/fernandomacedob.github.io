@@ -129,6 +129,13 @@ html[data-language="pt-BR"] .hero-lead { min-height: 5.25em; }
     box-sizing: border-box;
   }
 
+  /* Keep the profile copy anchored to the same reference line regardless of
+     its translated line count. */
+  .profile-portrait > div {
+    align-self: start;
+    margin-top: 40px;
+  }
+
   .hero-grid > div:first-child {
     align-self: start;
     margin-top: 33px;
@@ -140,12 +147,13 @@ html[data-language="pt-BR"] .hero-lead { min-height: 5.25em; }
 
 @media (min-width: 721px) and (max-width: 960px) {
   .hero h1 { min-height: 2.85em; }
-  .hero-lead { min-height: 4.4em; }
+  .hero-lead { min-height: 4.25em; }
   html[data-language="pt-BR"] .career-map { min-height: 733px; }
 }
 
 @media (max-width: 720px) {
-  .hero h1 { min-height: 3.8em; }
-  .hero-lead { min-height: 5em; }
+  /* Shared slots preserve the English-reference geometry for every locale. */
+  .hero h1 { min-height: 5em; }
+  .hero-lead { min-height: 7em; }
   html[data-language="pt-BR"] .career-map { min-height: 729px; }
 }
