@@ -196,3 +196,10 @@ html[data-language="pt-BR"] .hero-lead { min-height: 5.25em; }
 
   .profile-facts { margin-top: auto; }
 }
+
+/* At the narrowest phone width the Portuguese word “desenvolvedor” is
+   slightly wider than the English reference column.  Reduce only this
+   localized display size enough to keep the complete word on one line. */
+@media (max-width: 380px) {
+  html[data-language="pt-BR"] .hero h1 { font-size: 2.9rem; }
+}
