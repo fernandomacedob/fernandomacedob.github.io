@@ -66,3 +66,6 @@
 .language-switcher button { min-height: 30px; padding: 0 8px; border: 1px solid var(--border); border-radius: 5px; background: transparent; color: var(--ink); cursor: pointer; font: 800 .65rem/1 Manrope, sans-serif; letter-spacing: .04em; }
 .language-switcher button[aria-pressed="true"] { border-color: var(--teal); background: var(--teal); color: #fff; }
 @media (max-width: 720px) { .language-switcher { justify-self: start; } }
+
+.intro { grid-template-columns: 1.3fr .7fr; }
+@media (max-width: 960px) { .intro { grid-template-columns: 1fr; } .intro > p { grid-column: auto; } }
